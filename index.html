@@ -19,7 +19,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="">
     <header>
         <!-- navbar start -->
       <nav class="fixed top-0 left-0 w-full z-50">
@@ -42,20 +42,7 @@
                   />
                 </svg>
               </div>
-              <ul
-                tabindex="0"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-              >
-                <li><a>Item 1</a></li>
-                <li>
-                  <a>Parent</a>
-                  <ul class="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                  </ul>
-                </li>
-                <li><a>Item 3</a></li>
-              </ul>
+             
             </div>
             <div class="text-3xl font-bold">
                 <p>English <img class="inline-block" src="assets/logo.png" alt=""> জানালা</p>
@@ -66,7 +53,7 @@
             </ul>
           </div>
           <div class="navbar-end gap-5">
-            <a class="btn hover:bg-blue-500 hover:text-white">FAQ</a>
+            <a href="#faq_section" class="btn hover:bg-blue-500 hover:text-white">FAQ</a>
             <a class="btn  hover:bg-blue-500 hover:text-white">Learn</a>
             <a class="btn  hover:bg-blue-500 hover:text-white">LogOut</a>
           </div>
@@ -93,7 +80,7 @@
             </div>
          </div>
     </header>
-    <main class="w-11/12 mx-auto py-56">
+    <main class="w-11/12 mx-auto py-100">
 
         <div>
             <h1 class="text-3xl font-bold text-center"><span class="text-blue-300">Let's</span> Learn Vocabularies</h1>
@@ -108,6 +95,39 @@
             </section>
         </div>
 
+        <section id="faq_section" class="w-11/12 py-100 mx-auto">
+          <h1 class="text-3xl font-bold text-center"><span class="text-blue-500">Frequently</span> Asked Questions</h1>
+          <div class="text-center py-5">
+            <div class="join join-vertical bg-base-100 w-full text-left gap-5">
+  <div class="rounded-lg bg-slate-100 collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" checked="checked" />
+    <div class="collapse-title font-semibold">1. How can I start learning English on this website?</div>
+    <div class="collapse-content text-sm">Start with simple words and phrases. Search words in the dictionary daily, read their meanings and examples, and practice speaking, listening, reading, and writing a little every day.</div>
+  </div>
+  <div class="rounded-lg bg-slate-100 collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div class="collapse-title font-semibold">2. Is this website free to use?</div>
+    <div class="collapse-content text-sm">Yes, this website is completely free to use. You can access all the dictionary features, search for words, and explore meanings without any cost.</div>
+  </div>
+  <div class="rounded-lg bg-slate-100 collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div class="collapse-title font-semibold">3. Do I need to create an account?</div>
+    <div class="collapse-content text-sm">No, you don’t need an account to use the basic features. You can search words and read their meanings freely. Creating an account is optional and only needed if you want to save your favorite words or track your learning progress.</div>
+  </div>
+  <div class="rounded-lg bg-slate-100 collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div class="collapse-title font-semibold">4. How can I build my English vocabulary?</div>
+    <div class="collapse-content text-sm">Search and learn new words daily using the dictionary. Read example sentences, practice speaking and writing them, and review your saved or favorite words regularly to remember them better.</div>
+  </div>
+  <div class="rounded-lg bg-slate-100 collapse collapse-arrow join-item border-base-300 border">
+    <input type="radio" name="my-accordion-4" />
+    <div class="collapse-title font-semibold">5. Do you offer certificates for completed courses?</div>
+    <div class="collapse-content text-sm">No, this website does not provide certificates. It focuses on helping you learn and improve your English vocabulary through practice and daily usage.</div>
+  </div>
+</div>
+          </div>
+        </section>
+
     </main>
 
 
@@ -115,18 +135,23 @@
   </body>
 </html>
 
-<div class="flex justify-between">
+
+
+<!-- <div class="flex justify-between">
   <button class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
 <img  src="https://img.icons8.com/?size=60&id=59719&format=png" alt="">
   </button>
   <button class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
 <img src="https://img.icons8.com/?size=100&id=41563&format=png" alt="">
   </button>
-</div>
+</div> -->
+
+
+
 
 
 <!-- Open the modal using ID.showModal() method -->
-<button class="btn" onclick="world_details.showModal()">open modal</button>
+<!-- <button class="btn" onclick="world_details.showModal()">open modal</button> -->
 <dialog id="world_details" class="modal">
   <div class="modal-box">
     <div id="modal_container">
