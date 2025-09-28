@@ -11,11 +11,18 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      .active{
+        background-color: burlywood;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <header>
         <!-- navbar start -->
-      <nav class="fixed top-0 left-0 w-full">
+      <nav class="fixed top-0 left-0 w-full z-50">
         <div class="navbar bg-base-100 shadow-sm">
           <div class="navbar-start">
             <div class="dropdown">
@@ -66,6 +73,7 @@
         </div>
       </nav>
          <!-- navbar end -->
+          
 
          <div class="w-11/12 mx-auto py-5 flex justify-center items-center">
             <div class="flex-1">
@@ -93,7 +101,10 @@
 
             </section>
             <sect id="words-container" class="grid grid-cols-4 gap-5">
-
+              <div class="bg-slate-100 w-full col-span-full mx-auto text-center h-[200px] rounded-lg flex flex-col justify-center items-center gap-5">
+                <p class="text-gray-400">আপনি এখনো কোন Lesson Select করেন নাই</p>
+                <h1 class="text-3xl font-semibold">একটি Lesson Select করুন।</h1>
+              </div>
             </section>
         </div>
 
@@ -103,4 +114,41 @@
     <script src="script/index.js"></script>
   </body>
 </html>
+
+<div class="flex justify-between">
+  <button class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
+<img  src="https://img.icons8.com/?size=60&id=59719&format=png" alt="">
+  </button>
+  <button class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
+<img src="https://img.icons8.com/?size=100&id=41563&format=png" alt="">
+  </button>
+</div>
+
+
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="world_details.showModal()">open modal</button>
+<dialog id="world_details" class="modal">
+  <div class="modal-box">
+    <div id="modal_container">
+
+        <h1 class="text-3xl font-bold">title <img src="https://icons8.com/icon/59836/microphone" alt=""> </h1>
+        <img src="https://img.icons8.com/?size=48&id=85796&format=png" class="mx-auto mb-4" alt="">
+
+        <h1 class="text-xl font-bold">Meaning</h1>
+
+         <h1 class="text-xl font-bold">Example</h1>
+
+        <h1 class="text-xl font-bold">সমার্থক শব্দ গুলো</h1>
+
+
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
 
