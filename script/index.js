@@ -16,9 +16,8 @@ document
       alert("congrats");
       const hiddenSections = document.getElementsByClassName("hide_section");
       console.log(hiddenSections);
-      for(let hiddenSection of hiddenSections )
-      {
-        hiddenSection.classList.remove("none");
+      for (let hiddenSection of hiddenSections) {
+        hiddenSection.classList.remove("hide_section");
       }
     } else {
       alert("You Entered a Wrong Password!!");
@@ -38,6 +37,13 @@ document.querySelectorAll(".scroll-btn").forEach((btn) => {
   });
 });
 //Scroll behavior end
+
+
+ function pronounceWord(word) {
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'en-EN'; // English
+      window.speechSynthesis.speak(utterance);
+    }
 
 function removeActiveClass() {
   const activeButtons = document.getElementsByClassName("active");
@@ -89,7 +95,8 @@ function displayWordDetailsOk(wordDetails) {
         <h1 class="text-3xl font-bold">${wordDetails.word}  [<img  src="https://img.icons8.com/?size=48&id=85796&format=png" class="w-8 inline-block mx-auto mb-4" alt="">: ${wordDetails.pronunciation} ] </h1>
 
         <h1 class="text-xl font-bold text-rose-300">Meaning:</h1>
-        ${wordDetails.meaning}
+        ${wordDetails.meaning == null ? "অর্থ খুঁজে পাওয়া যায় নি।" : wordDetails.meaning}
+        
 
         <h1 class="text-xl font-bold  text-rose-300">Example</h1>
         ${wordDetails.sentence}
@@ -125,13 +132,13 @@ function displayWordsByButton(words) {
   <div class="card-body">
     <h2 class="card-title text-3xl font-bold text-sky-950">${word.word}</h2>
     <h1 class="font-bold">Meaning/Pronunciation</h1>
-    <p>${word.meaning}</p>
-    <p>${word.id}</p>
+   <p>${word.meaning == null ? "অর্থ খুঁজে পাওয়া যায় নি।" : word.meaning}</p>
+
   <div class="flex justify-between">
   <button onclick="loadWordDetailsOk('${word.id}')" class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
 <img  src="https://img.icons8.com/?size=60&id=59719&format=png" alt="">
   </button>
-  <button class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
+  <button onclick="pronounceWord('${word.word}')" class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
 <img  src="https://img.icons8.com/?size=100&id=41563&format=png" alt="">
   </button>
 </div>
