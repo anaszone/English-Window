@@ -14,36 +14,70 @@ document
 
     if (inputPassword === "1234") {
       alert("congrats");
-      const hiddenSections = document.getElementsByClassName("hide_section");
-      console.log(hiddenSections);
-      for (let hiddenSection of hiddenSections) {
-        hiddenSection.classList.remove("hide_section");
-      }
-    } else {
+
+      const hiddenSections = document.querySelectorAll(".hide_section");
+      hiddenSections.forEach((section) => {
+        section.classList.remove("hide_section");
+      });
+      document.getElementById("hide_banner").classList.add("hide_section");
+    } 
+    else {
       alert("You Entered a Wrong Password!!");
     }
     document.getElementById("input_id").value = "";
     document.getElementById("input_password").value = "";
   });
-//Scroll behavior start
-document.querySelectorAll(".scroll-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const target = document.getElementById(btn.dataset.target);
 
-    window.scrollTo({
-      top: target.offsetTop - 70, // navbar er height adjust
-      behavior: "smooth", // smooth scrolling
-    });
+
+document.getElementById("logout_btn").addEventListener("click", function(event){
+    event.preventDefault();
+
+   
+    const banner = document.getElementById("hide_banner");
+    banner.classList.remove("hide_section");  
+    banner.classList.remove("hidden");       
+    banner.style.display = "flex";            
+
+    
+    document.getElementById("navbar_section").classList.add("hidden");
+
+    document.getElementById("main_section").classList.add("hidden");
+});
+
+
+
+//Scroll behavior start
+
+document.querySelectorAll(".scroll-btn").forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const targetId = btn.getAttribute("href").substring(1);
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      const navbar = document.querySelector("nav"); 
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+      
+      const y = target.getBoundingClientRect().top + window.scrollY - (navbarHeight + 20);
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
   });
 });
+
+
 //Scroll behavior end
 
-
- function pronounceWord(word) {
-      const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = 'en-EN'; // English
-      window.speechSynthesis.speak(utterance);
-    }
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 
 function removeActiveClass() {
   const activeButtons = document.getElementsByClassName("active");
@@ -92,10 +126,18 @@ function displayWordDetailsOk(wordDetails) {
   modalContainer.innerHTML = `
 
     
-        <h1 class="text-3xl font-bold">${wordDetails.word}  [<img  src="https://img.icons8.com/?size=48&id=85796&format=png" class="w-8 inline-block mx-auto mb-4" alt="">: ${wordDetails.pronunciation} ] </h1>
+        <h1 class="text-3xl font-bold">${
+          wordDetails.word
+        }  [<img  src="https://img.icons8.com/?size=48&id=85796&format=png" class="w-8 inline-block mx-auto mb-4" alt="">: ${
+    wordDetails.pronunciation
+  } ] </h1>
 
         <h1 class="text-xl font-bold text-rose-300">Meaning:</h1>
-        ${wordDetails.meaning == null ? "অর্থ খুঁজে পাওয়া যায় নি।" : wordDetails.meaning}
+        ${
+          wordDetails.meaning == null
+            ? "অর্থ খুঁজে পাওয়া যায় নি।"
+            : wordDetails.meaning
+        }
         
 
         <h1 class="text-xl font-bold  text-rose-300">Example</h1>
@@ -135,10 +177,14 @@ function displayWordsByButton(words) {
    <p>${word.meaning == null ? "অর্থ খুঁজে পাওয়া যায় নি।" : word.meaning}</p>
 
   <div class="flex justify-between">
-  <button onclick="loadWordDetailsOk('${word.id}')" class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
+  <button onclick="loadWordDetailsOk('${
+    word.id
+  }')" class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
 <img  src="https://img.icons8.com/?size=60&id=59719&format=png" alt="">
   </button>
-  <button onclick="pronounceWord('${word.word}')" class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
+  <button onclick="pronounceWord('${
+    word.word
+  }')" class="w-10 h-10 bg-slate-100 p-2 text-center hover:bg-yellow-200 hover:cursor-pointer">
 <img  src="https://img.icons8.com/?size=100&id=41563&format=png" alt="">
   </button>
 </div>

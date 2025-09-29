@@ -20,15 +20,12 @@
       .hide_section{
         display: none;
       }
-      /* #login_section{
-          display: none;
-      } */
     </style>
   </head>
   <body >
     <header>
         <!-- navbar start -->
-      <nav class="fixed top-0 left-0 w-full z-50 hide_section"  >
+      <nav id="navbar_section" class="fixed top-0 left-0 w-full z-50 hide_section"  >
         <div class="navbar bg-base-300 shadow-sm">
           <div class="navbar-start">
             <div class="dropdown">
@@ -61,19 +58,19 @@
           <div class="navbar-end gap-5">
              <a href="#home_section" class="scroll-btn btn hover:bg-blue-500 hover:text-white hover:underline">
              <img class="h-5 w-5" src="https://img.icons8.com/?size=60&id=59809&format=png" alt="">Home</a>
-            <a href="#faq_section" class="scroll-btn btn hover:bg-blue-500 hover:text-white hover:underline">
-              <img class="h-5 w-5" src="https://img.icons8.com/?size=52&id=5470&format=png" alt="">FAQ</a>
             <a href="#vocabulary_section" class="scroll-btn btn  hover:bg-blue-500 hover:text-white hover:underline">
               <img class="h-5 w-5" src="https://img.icons8.com/?size=60&id=rLyTKKF8rh3W&format=png" alt="">Learn</a>
+              <a href="#faq_section" class="scroll-btn btn hover:bg-blue-500 hover:text-white hover:underline">
+              <img class="h-5 w-5" src="https://img.icons8.com/?size=52&id=5470&format=png" alt="">FAQ</a>
             <a class="scroll-btn btn  hover:bg-blue-500 hover:text-white">
-              <img class="h-5 w-5" src="https://img.icons8.com/?size=48&id=83179&format=png" alt="">LogOut</a>
+              <img id="logout_btn" class="h-5 w-5" src="https://img.icons8.com/?size=48&id=83179&format=png" alt="">LogOut</a>
           </div>
         </div>
       </nav>
          <!-- navbar end -->
           
-
-         <div id="home_section" class="w-11/12 mx-auto py-5 flex justify-center items-center">
+<!-- Banner start -->
+         <div id="hide_banner" class="w-11/12 mx-auto py-5 flex justify-center items-center">
             <div class="flex-1">
                 <h1 class="text-3xl font-bold"><span class="text-blue-300">English</span> is Easy!!</h1>
                 <p>আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
@@ -91,8 +88,23 @@
             </div>
          </div>
     </header>
-    <main class="w-11/12 mx-auto pt-96 hide_section">
+    
+<!-- Banner end -->
 
+
+    <main id="main_section" class="w-11/12 mx-auto hide_section space-y-96">
+
+<!-- Welcoming page start -->
+      <div id="home_section" class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-sky-10 to-indigo-10 p-6">
+  <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 text-center">
+    <h1 class="text-4xl font-extrabold text-indigo-600 mb-4">Welcome!</h1>
+    <p class="text-gray-700 text-lg mb-6">আপনি vocabulary শেখার যাত্রা শুরু করছেন। আজ নতুন কিছু শব্দ শিখুন এবং আনন্দ পান!</p>
+    <p class="text-sm text-gray-500 mt-6">Tip: প্রতিদিন অন্তত ৫টা নতুন শব্দ শিখুন 🚀</p>
+  </div>
+</div>
+<!-- Welcoming page end -->
+
+<!-- Vocabularies section start -->
         <div id="vocabulary_section">
             <h1 class="text-3xl font-bold text-center"><span class="text-blue-300">Let's</span> Learn Vocabularies</h1>
             <section id="all-btns" class="flex justify-center items-center py-5 gap-5">
@@ -105,8 +117,11 @@
               </div>
             </section>
         </div>
+        <!-- Vocabularies section end -->
 
-        <section id="faq_section" class="w-11/12 pt-100 mx-auto scroll-mt-1">
+        <!-- FAQ section start -->
+        <div>
+          <section id="faq_section" class="w-11/12 mx-auto scroll-mt-1">
           <h1 class="text-3xl font-bold text-center"><span class="text-blue-500">Frequently</span> Asked Questions</h1>
           <div class="text-center py-5">
             <div class="join join-vertical bg-base-100 w-full text-left gap-5">
@@ -138,8 +153,11 @@
 </div>
           </div>
         </section>
-
+        </div>
+          <!-- FAQ section end -->
     </main>
+
+    <!-- Footer start -->
     <footer class="bg-slate-50 p-10 mt-50 hide_section">
       <div class="flex justify-between">
         <div>
@@ -161,6 +179,7 @@
         </div>
       </div>
     </footer>
+      <!-- Footer end -->
 
 
     <script src="script/index.js"></script>
@@ -202,7 +221,7 @@
     <div class="modal-action">
       <form method="dialog">
         <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
+        <button  class="btn bg-blue-600 text-white">Close</button>
       </form>
     </div>
   </div>
