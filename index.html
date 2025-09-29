@@ -17,12 +17,18 @@
         background-color: burlywood;
         color: white;
       }
+      .hide_section{
+        /* display: none; */
+      }
+      /* #login_section{
+          display: none;
+      } */
     </style>
   </head>
-  <body class="">
+  <body >
     <header>
         <!-- navbar start -->
-      <nav class="fixed top-0 left-0 w-full z-50">
+      <nav class="fixed top-0 left-0 w-full z-50 hide_section"  >
         <div class="navbar bg-base-100 shadow-sm">
           <div class="navbar-start">
             <div class="dropdown">
@@ -53,25 +59,26 @@
             </ul>
           </div>
           <div class="navbar-end gap-5">
-            <a href="#faq_section" class="btn hover:bg-blue-500 hover:text-white">FAQ</a>
-            <a class="btn  hover:bg-blue-500 hover:text-white">Learn</a>
-            <a class="btn  hover:bg-blue-500 hover:text-white">LogOut</a>
+             <a href="#home_section" class="scroll-btn btn hover:bg-blue-500 hover:text-white hover:underline">Home</a>
+            <a href="#faq_section" class="scroll-btn btn hover:bg-blue-500 hover:text-white hover:underline">FAQ</a>
+            <a href="#vocabulary_section" class="scroll-btn btn  hover:bg-blue-500 hover:text-white hover:underline">Learn</a>
+            <a class="scroll-btn btn  hover:bg-blue-500 hover:text-white">LogOut</a>
           </div>
         </div>
       </nav>
          <!-- navbar end -->
           
 
-         <div class="w-11/12 mx-auto py-5 flex justify-center items-center">
+         <div id="home_section" class="w-11/12 mx-auto py-5 flex justify-center items-center">
             <div class="flex-1">
                 <h1 class="text-3xl font-bold"><span class="text-blue-300">English</span> is Easy!!</h1>
                 <p>আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
                 <div class="card-body">
         <fieldset class="fieldset">
           
-          <input type="text" class="input" placeholder="Enter Your name" />
-          <input type="password" class="input" placeholder="Password" />
-          <button class="btn mt-4 w-[200px] bg-blue-700 text-white">Get Started</button>
+          <input id="input_id" type="text" class="input" value="anas" placeholder="Enter Your name" />
+          <input id="input_password" type="password" value="1234" class="input" placeholder="Type Password 1234" />
+          <button id="input_button" class="btn mt-4 w-[200px] bg-blue-700 text-white hover:underline hover:text-yellow-700 hover:bg-cyan-300">Get Started</button>
         </fieldset>
       </div>
             </div>
@@ -80,9 +87,9 @@
             </div>
          </div>
     </header>
-    <main class="w-11/12 mx-auto py-100">
+    <main class="w-11/12 mx-auto pt-96 hide_section">
 
-        <div>
+        <div id="vocabulary_section">
             <h1 class="text-3xl font-bold text-center"><span class="text-blue-300">Let's</span> Learn Vocabularies</h1>
             <section id="all-btns" class="flex justify-center items-center py-5 gap-5">
 
@@ -95,7 +102,7 @@
             </section>
         </div>
 
-        <section id="faq_section" class="w-11/12 py-100 mx-auto">
+        <section id="faq_section" class="w-11/12 pt-100 mx-auto scroll-mt-1">
           <h1 class="text-3xl font-bold text-center"><span class="text-blue-500">Frequently</span> Asked Questions</h1>
           <div class="text-center py-5">
             <div class="join join-vertical bg-base-100 w-full text-left gap-5">
@@ -129,6 +136,27 @@
         </section>
 
     </main>
+    <footer class="bg-slate-50 p-10 mt-50 hide_section">
+      <div class="flex justify-between">
+        <div>
+          <div class="text-sm font-bold space-y-2">
+                <p>English <img class="inline-block" src="assets/logo.png" alt=""> জানালা</p>
+                <p>ইংরেজি শিখুন সহজে</p>
+                 <p class="text-gray-600 text-sm">© 2025 Anas. All rights reserved.</p>
+            </div>
+        </div>
+       
+        <div class="items-center">
+          <p>FOLLOW US ON</p>
+           <div class="flex gap-2">
+          <img class="w-5 h-5 cursor-pointer" src="https://img.icons8.com/?size=60&id=118466&format=png" alt="" >
+          <img class="w-5 h-5"  src="https://img.icons8.com/?size=60&id=62852&format=png" alt="">
+          <img class="w-5 h-5" src="https://img.icons8.com/?size=60&id=59813&format=png" alt="">
+          <img class="w-5 h-5" src="https://img.icons8.com/?size=48&id=106562&format=png" alt="">
+        </div>
+        </div>
+      </div>
+    </footer>
 
 
     <script src="script/index.js"></script>

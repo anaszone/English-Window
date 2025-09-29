@@ -1,3 +1,44 @@
+document
+  .getElementById("input_button")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    const inputID = document.getElementById("input_id").value;
+    const inputPassword = document.getElementById("input_password").value;
+
+    // console.log(inputID, inputPassword);
+
+    if (inputID === "" || inputPassword === "") {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    if (inputPassword === "1234") {
+      alert("congrats");
+      const hiddenSections = document.getElementsByClassName("hide_section");
+      console.log(hiddenSections);
+      for(let hiddenSection of hiddenSections )
+      {
+        hiddenSection.classList.remove("none");
+      }
+    } else {
+      alert("You Entered a Wrong Password!!");
+    }
+    document.getElementById("input_id").value = "";
+    document.getElementById("input_password").value = "";
+  });
+//Scroll behavior start
+document.querySelectorAll(".scroll-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = document.getElementById(btn.dataset.target);
+
+    window.scrollTo({
+      top: target.offsetTop - 70, // navbar er height adjust
+      behavior: "smooth", // smooth scrolling
+    });
+  });
+});
+//Scroll behavior end
+
 function removeActiveClass() {
   const activeButtons = document.getElementsByClassName("active");
 
@@ -32,17 +73,17 @@ function loadWordsByButton() {
     .then((data) => displayWordsByButton(data.data));
 }
 function loadWordDetailsOk(wordID) {
-    const url = `https://openapi.programming-hero.com/api/word/${wordID}`
+  const url = `https://openapi.programming-hero.com/api/word/${wordID}`;
 
-    fetch(url)
-    .then((res)=>res.json())
-    .then((data)=>displayWordDetailsOk(data.data));
-  }
-  function displayWordDetailsOk(wordDetails){
-    console.log(wordDetails);
-    document.getElementById("world_details").showModal();
-    const modalContainer = document.getElementById("modal_container");
-    modalContainer.innerHTML = `
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayWordDetailsOk(data.data));
+}
+function displayWordDetailsOk(wordDetails) {
+  console.log(wordDetails);
+  document.getElementById("world_details").showModal();
+  const modalContainer = document.getElementById("modal_container");
+  modalContainer.innerHTML = `
 
     
         <h1 class="text-3xl font-bold">${wordDetails.word}  [<img  src="https://img.icons8.com/?size=48&id=85796&format=png" class="w-8 inline-block mx-auto mb-4" alt="">: ${wordDetails.pronunciation} ] </h1>
@@ -56,9 +97,8 @@ function loadWordDetailsOk(wordID) {
         <h1 class="text-xl font-bold  text-rose-300">সমার্থক শব্দ গুলো</h1>
         ${wordDetails.synonyms}
     
-    `
-
-  }
+    `;
+}
 
 function displayWordsByButton(words) {
   // console.log(words);
